@@ -1,7 +1,38 @@
-export default function App() {
+import { useState } from "react";
+
+function Square() {
+  const [value, setValue] = useState(null);
+  function handleClick() {
+    setValue("X");
+  }
   return (
-    <div>
-      <p className="bg-black h-200"></p>
-    </div>
+    <button
+      onClick={handleClick}
+      className="bg-white border-2  border-gray-200 h-12 w-12 m-1 leading-9 text-lg"
+    >
+      {value}
+    </button>
+  );
+}
+
+export default function Board() {
+  return (
+    <>
+      <div className="flex">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+      <div className="flex">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+      <div className="flex">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+    </>
   );
 }
